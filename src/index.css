@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Slick Carousel Styles */
+@layer components {
+  /* Force arrows to be visible */
+  .slick-prev,
+  .slick-next {
+    display: block !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: white !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #e2e8f0 !important;
+    z-index: 999 !important;
+  }
+
+  .slick-prev {
+    left: -22px !important;
+    top: 50% !important;
+  }
+
+  .slick-next {
+    right: -22px !important;
+    top: 50% !important;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-family: 'slick' !important;
+    font-size: 20px !important;
+    opacity: 1 !important;
+  }
+
+  .slick-prev:hover,
+  .slick-next:hover {
+    background: #f8fafc !important;
+  }
+
+  /* Ensure slider container has proper positioning */
+  .slick-slider {
+    position: relative !important;
+  }
+
+  /* Hide any slick-arrow class that might be hidden */
+  .slick-arrow {
+    display: block !important;
+  }
+}
