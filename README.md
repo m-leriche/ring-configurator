@@ -24,7 +24,7 @@ A modern React application for visualizing and configuring ring stacks with inte
 Before running this project locally, make sure you have the following installed:
 
 - **Node.js** (version 20 or higher)
-- **npm** or **yarn** package manager
+- **npm** package manager
 
 **Note**: Not currently made for mobile. Best to view on desktop at least 1440px wide!!!!!!!!!
 
@@ -87,6 +87,8 @@ src/
 │   ├── AutoCroppedImage.tsx    # Smart image component with auto-cropping
 │   ├── Carousel.tsx            # Ring carousel component
 │   └── ImageModal.tsx          # Stack preview modal
+├── data/
+│   └── ringData.ts             # Ring product data and configuration
 ├── assets/                     # Ring images
 ├── types/
 │   └── carousel.ts             # TypeScript type definitions
@@ -100,8 +102,8 @@ src/
 ### Adding New Rings
 
 1. Add new ring images to the `src/assets/` directory
-2. Import the images in `src/App.tsx`
-3. Add new ring objects to the `ringItems` array with the following structure:
+2. Import the images in `src/data/ringData.ts`
+3. Add new ring objects to the `ringItems` array in `src/data/ringData.ts` with the following structure:
 
 ```typescript
 {
