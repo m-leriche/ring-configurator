@@ -1,9 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { motion, AnimatePresence } from 'motion/react';
 import type { CarouselItem } from '../types/carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+// Utility function to check if an item is experimental
+const isExperimental = (item: CarouselItem): boolean => {
+  return item.experimental;
+};
+
+// Experimental overlay component
+const ExperimentalOverlay: React.FC<{ isCenter: boolean }> = ({ isCenter }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  if (!isCenter) return null;
+
+  return (
+    <div className="absolute top-2 right-2 z-10">
+      <div
+        className="relative"
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+      >
+        {/* Warning icon */}
+        <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-white shadow-lg cursor-help">
+          <span className="text-white text-xs font-bold">!</span>
+        </div>
+
+        {/* Tooltip */}
+        <AnimatePresence>
+          {showTooltip && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -5 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -5 }}
+              transition={{ duration: 0.15 }}
+              className="absolute top-full right-0 mt-2 w-64 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-lg z-20"
+            >
+              <div className="font-medium mb-1">Experimental Item</div>
+              <div className="text-gray-300">
+                Image not correctly configured for configurator, used as a
+                visualization tool only
+              </div>
+              {/* Tooltip arrow */}
+              <div className="absolute bottom-full right-4 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-900"></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
 
 interface ArrowProps {
   className?: string;
@@ -194,6 +242,11 @@ const Carousel: React.FC<CarouselProps> = ({
                         'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
                     }}
                   />
+
+                  {/* Experimental overlay - only show when centered and experimental */}
+                  {isExperimental(item) && (
+                    <ExperimentalOverlay isCenter={isCenter} />
+                  )}
                 </div>
 
                 {/* Absolutely positioned text overlay */}
