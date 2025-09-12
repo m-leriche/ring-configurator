@@ -23,8 +23,10 @@ A modern React application for visualizing and configuring ring stacks with inte
 
 Before running this project locally, make sure you have the following installed:
 
-- **Node.js** (version 18 or higher)
+- **Node.js** (version 20 or higher)
 - **npm** or **yarn** package manager
+
+**Note**: Not currently made for mobile. Best to view on desktop at least 1440px wide!!!!!!!!!
 
 ## Getting Started
 
@@ -160,4 +162,5 @@ This application supports modern browsers that support:
 ## License
 
 This project is private and not licensed for public use.
+
 # ring-configurator
