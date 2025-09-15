@@ -10,6 +10,8 @@ import domeFigureEnamelRing from '../assets/dome-figure-enamel.png';
 import domeFigureWhiteTopazRing from '../assets/dome-figure-white-topaz.png';
 import domeFigureSlimRedRing from '../assets/dome-figure-slim-red-enamel.png';
 import domeFigureSlimGreenRing from '../assets/dome-figure-slim-green-enamel.png';
+import stackerRing from '../assets/stacker-ring.png';
+import stackerDuoRing from '../assets/stacker-duo-ring.png';
 
 // Ring product data
 export const ringItems: CarouselItem[] = [
@@ -32,6 +34,20 @@ export const ringItems: CarouselItem[] = [
     title: 'Pavé Dome Ring',
     price: 'CA$2,599',
     variantLabel: 'Sterling Silver',
+    experimental: false,
+  },
+  {
+    image: stackerRing,
+    title: 'Stacker Ring',
+    price: 'CA$599',
+    variantLabel: '14k Gold Vermeil',
+    experimental: false,
+  },
+  {
+    image: stackerDuoRing,
+    title: 'Stacker Duo Ring',
+    price: 'CA$899',
+    variantLabel: '14k Gold Vermeil',
     experimental: false,
   },
   {
