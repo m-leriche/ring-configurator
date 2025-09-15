@@ -81,7 +81,6 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, items }) => {
   }, [isOpen]);
 
   if (!items || items.length === 0) return null;
-  const testItem = items.slice(0, 1);
 
   return (
     <AnimatePresence>

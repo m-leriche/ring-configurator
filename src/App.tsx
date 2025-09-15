@@ -23,7 +23,7 @@ function App() {
     const centerItems: CarouselItem[] = [];
 
     // Get center item from each carousel
-    currentSlides.forEach((slideIndex, carouselIndex) => {
+    currentSlides.forEach((slideIndex) => {
       const centerIndex = getCenterIndex(slideIndex);
       const centerItem = ringItems[centerIndex];
 

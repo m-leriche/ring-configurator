@@ -169,7 +169,7 @@ const Carousel: React.FC<CarouselProps> = ({
   };
 
   // Also handle before change for more responsive updates
-  const handleBeforeChange = (current: number, next: number) => {
+  const handleBeforeChange = (_current: number, next: number) => {
     setCurrentSlide(next);
     onSlideChange?.(next);
   };
@@ -205,7 +205,7 @@ const Carousel: React.FC<CarouselProps> = ({
       },
     ],
   };
-  const testItem = items.slice(0, 1);
+
   return (
     <div className={`w-full max-w-6xl mx-auto px-16 relative ${className}`}>
       <Slider {...settings}>
