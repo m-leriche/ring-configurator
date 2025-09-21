@@ -15,7 +15,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, items }) => {
   // State to control whether rings are in separated or final stacked position
   const [isStacked, setIsStacked] = React.useState(false);
   // State to control the giggling cowboy easter egg
-  const [showCowboy, setShowCowboy] = React.useState(false);
+  // const [showCowboy, setShowCowboy] = React.useState(false);
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -51,7 +51,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, items }) => {
 
       // Reset to separated state when modal opens
       setIsStacked(false);
-      setShowCowboy(false);
+      // setShowCowboy(false);
 
       // After 500ms, animate to final stacked position
       const stackTimer = setTimeout(() => {
@@ -60,13 +60,13 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, items }) => {
 
       // After stacking animation completes + 5 seconds, show cowboy
       // (500ms delay + 2000ms animation + 5000ms wait = 7500ms total)
-      const cowboyTimer = setTimeout(() => {
-        setShowCowboy(true);
-      }, 3000);
+      // const cowboyTimer = setTimeout(() => {
+      //   setShowCowboy(true);
+      // }, 3000);
 
       return () => {
         clearTimeout(stackTimer);
-        clearTimeout(cowboyTimer);
+        // clearTimeout(cowboyTimer);
         document.removeEventListener('keydown', handleKeyDown);
         document.body.style.overflow = 'unset';
       };
@@ -207,7 +207,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, items }) => {
               </div>
 
               {/* Giggling Cowboy Easter Egg - in sidebar above total */}
-              <AnimatePresence>
+              {/* <AnimatePresence>
                 {showCowboy && (
                   <motion.div
                     className="p-2 flex justify-center"
@@ -225,7 +225,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, items }) => {
                     ></iframe>
                   </motion.div>
                 )}
-              </AnimatePresence>
+              </AnimatePresence> */}
 
               {/* Total in sidebar */}
               <div className="p-4 border-t border-gray-200">
