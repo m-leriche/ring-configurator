@@ -52,28 +52,25 @@ const DraggableCarousel: React.FC<DraggableCarouselProps> = ({
       <div
         {...attributes}
         {...listeners}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 cursor-grab active:cursor-grabbing hover:scale-110 transition-transform duration-200"
+        className="absolute top-1/2 transform -translate-y-1/2 z-10 cursor-grab active:cursor-grabbing hover:scale-110 transition-transform duration-200"
+        style={{ left: '-40px' }}
         title="Drag to reorder carousels"
       >
-        <motion.div
-          className="bg-white rounded-full p-3 shadow-lg border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-200"
-          whileHover={{
-            scale: 1.1,
-            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.25)',
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="flex flex-col space-y-1">
-            <div className="w-4 h-0.5 bg-gray-400 rounded transition-colors duration-200 group-hover:bg-gray-600"></div>
-            <div className="w-4 h-0.5 bg-gray-400 rounded transition-colors duration-200 group-hover:bg-gray-600"></div>
-            <div className="w-4 h-0.5 bg-gray-400 rounded transition-colors duration-200 group-hover:bg-gray-600"></div>
+        <div className="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center">
+          <div className="flex flex-col space-y-0.5">
+            <div className="w-3 h-0.5 bg-white rounded"></div>
+            <div className="w-3 h-0.5 bg-white rounded"></div>
+            <div className="w-3 h-0.5 bg-white rounded"></div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Order Indicator */}
       {order && (
-        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
+        <div
+          className="absolute top-1/2 transform -translate-y-1/2 z-10"
+          style={{ right: '-40px' }}
+        >
           <div className="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
             {order}
           </div>
@@ -96,7 +93,6 @@ const DraggableCarousel: React.FC<DraggableCarouselProps> = ({
         transition={{ duration: 0.2 }}
       >
         <Carousel
-          key={`${id}-${currentSlide}`} // Force remount when currentSlide changes
           items={items}
           slidesToShow={slidesToShow}
           autoplay={false}
