@@ -142,6 +142,7 @@ interface CarouselProps {
   arrows?: boolean;
   className?: string;
   onSlideChange?: (index: number) => void;
+  initialSlide?: number;
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -155,13 +156,14 @@ const Carousel: React.FC<CarouselProps> = ({
   arrows = true,
   className = '',
   onSlideChange,
+  initialSlide = 0,
 }) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [currentSlide, setCurrentSlide] = React.useState(initialSlide);
 
-  // Ensure initial state is synced
+  // Only call onSlideChange on mount to sync initial state
   React.useEffect(() => {
-    onSlideChange?.(0);
-  }, []);
+    onSlideChange?.(initialSlide);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSlideChange = (index: number) => {
     setCurrentSlide(index);
@@ -183,6 +185,7 @@ const Carousel: React.FC<CarouselProps> = ({
     autoplay,
     autoplaySpeed,
     arrows,
+    initialSlide,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
     beforeChange: (current: number, next: number) =>
